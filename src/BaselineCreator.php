@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner;
+namespace IODigital\CodeSnifferBaseliner;
 
-use ISAAC\CodeSnifferBaseliner\Baseline\BaselineFactory;
-use ISAAC\CodeSnifferBaseliner\Filesystem\Filesystem;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
-use ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
-use ISAAC\CodeSnifferBaseliner\Util\OutputWriter;
+use IODigital\CodeSnifferBaseliner\Baseline\BaselineFactory;
+use IODigital\CodeSnifferBaseliner\Filesystem\Filesystem;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
+use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
+use IODigital\CodeSnifferBaseliner\Util\OutputWriter;
 
 use function sprintf;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\SourceCodeProcessor;
+namespace IODigital\CodeSnifferBaseliner\Tests\SourceCodeProcessor;
 
 class AddBaselineProcessorTestDataProvider
 {

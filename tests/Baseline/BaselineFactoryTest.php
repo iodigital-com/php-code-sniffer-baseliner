@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\Baseline;
+namespace IODigital\CodeSnifferBaseliner\Tests\Baseline;
 
-use ISAAC\CodeSnifferBaseliner\Baseline\BaselineFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\FileReportFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\MessageFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\ReportFactory;
+use IODigital\CodeSnifferBaseliner\Baseline\BaselineFactory;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\FileReportFactory;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\MessageFactory;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\ReportFactory;
 use PHPUnit\Framework\TestCase;
 
 class BaselineFactoryTest extends TestCase

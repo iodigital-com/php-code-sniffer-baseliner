@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
+namespace IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Totals;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Totals;
 
 class TotalsFactory
 {

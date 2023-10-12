@@ -1,6 +1,6 @@
 {
-    "name": "isaac/php-code-sniffer-baseliner",
-    "description": "ISAAC PHP Code Sniffer Baseliner",
+    "name": "iodigital-com/php-code-sniffer-baseliner",
+    "description": "IO PHP Code Sniffer Baseliner",
     "type": "library",
     "license": "MIT",
     "require": {
@@ -12,19 +12,19 @@
     },
     "autoload": {
         "psr-4": {
-            "ISAAC\\CodeSnifferBaseliner\\": "src/"
+            "IODigital\\CodeSnifferBaseliner\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ISAAC\\CodeSnifferBaseliner\\Tests\\": "tests/"
+            "IODigital\\CodeSnifferBaseliner\\Tests\\": "tests/"
         }
     },
     "bin": [
         "bin/phpcs-baseliner"
     ],
     "require-dev": {
-        "isaac/php-code-sniffer-standard": "^28.0",
+        "iodigital-com/php-code-sniffer-standard": "^29.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.6.8",
         "phpstan/phpstan-phpunit": "^1.1.1",

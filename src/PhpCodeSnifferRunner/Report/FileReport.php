@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report;
+namespace IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report;
 
 class FileReport
 {

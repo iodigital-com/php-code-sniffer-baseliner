@@ -3,7 +3,7 @@
   <file>src</file>
   <file>tests</file>
   <exclude-pattern>/tests/Fixtures/</exclude-pattern>
-  <rule ref="ISAAC"/>
+  <rule ref="IO"/>
   <config name="php_version" value="70300"/>
   <config name="testVersion" value="7.3-8.2"/>
   <arg name="extensions" value="php"/>

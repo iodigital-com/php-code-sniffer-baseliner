@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Util;
+namespace IODigital\CodeSnifferBaseliner\Util;
 
 use RuntimeException;
 

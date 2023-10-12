@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner;
+namespace IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
 
 class RunnerFactory
 {

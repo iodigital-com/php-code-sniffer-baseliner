@@ -11,7 +11,7 @@ all new code adheres to your coding standard without touching the existing code.
 Require the package with composer:
 
 ```sh
-composer require --dev isaac/php-code-sniffer-baseliner
+composer require --dev iodigital-com/php-code-sniffer-baseliner
 ```
 
 It is also possible to install this package as a global composer dependency.
@@ -96,4 +96,4 @@ multi-line strings). In those cases, `// phpcs:disable` and `// phpcs:enable` in
 [slevomat-coding-standard]: (https://github.com/slevomat/coding-standard)
 [declare-strict-types-sniff]: (https://github.com/slevomat/coding-standard#slevomatcodingstandardtypehintsdeclarestricttypes-)
 [property-type-hint-sniff]: (https://github.com/slevomat/coding-standard#slevomatcodingstandardtypehintspropertytypehint-)
-[unit-test-data-set]: (https://github.com/isaaceindhoven/php-code-sniffer-baseliner/blob/master/tests/File/AddBaselineProcessorTestDataProvider.php)
+[unit-test-data-set]: (https://github.com/iodigital-com/php-code-sniffer-baseliner/blob/master/tests/File/AddBaselineProcessorTestDataProvider.php)

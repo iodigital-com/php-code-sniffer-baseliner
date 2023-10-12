@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\Exception;
+namespace IODigital\CodeSnifferBaseliner\SourceCodeProcessor\Exception;
 
 use LogicException;
 

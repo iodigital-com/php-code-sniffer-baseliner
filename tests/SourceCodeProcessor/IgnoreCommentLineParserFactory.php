@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\SourceCodeProcessor;
+namespace IODigital\CodeSnifferBaseliner\Tests\SourceCodeProcessor;
 
-use ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLineParser;
+use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLineParser;
 
 class IgnoreCommentLineParserFactory
 {

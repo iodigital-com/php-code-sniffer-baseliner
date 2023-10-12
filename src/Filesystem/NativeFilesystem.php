@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Filesystem;
+namespace IODigital\CodeSnifferBaseliner\Filesystem;
 
 use function file_get_contents;
 use function file_put_contents;

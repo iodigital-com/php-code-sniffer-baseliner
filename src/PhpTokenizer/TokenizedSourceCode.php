@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\PhpTokenizer;
+namespace IODigital\CodeSnifferBaseliner\PhpTokenizer;
 
 use ArrayIterator;
 use Iterator;

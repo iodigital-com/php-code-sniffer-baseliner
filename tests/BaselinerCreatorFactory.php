@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests;
+namespace IODigital\CodeSnifferBaseliner\Tests;
 
-use ISAAC\CodeSnifferBaseliner\Baseline\BaselineFactory;
-use ISAAC\CodeSnifferBaseliner\BaselineCreator;
-use ISAAC\CodeSnifferBaseliner\BasePathFinder;
-use ISAAC\CodeSnifferBaseliner\Filesystem\Filesystem;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
-use ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
-use ISAAC\CodeSnifferBaseliner\Tests\Filesystem\FilesystemFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\RunnerFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\SourceCodeProcessor\AddBaselineProcessorFactory;
-use ISAAC\CodeSnifferBaseliner\Util\OutputWriter;
+use IODigital\CodeSnifferBaseliner\Baseline\BaselineFactory;
+use IODigital\CodeSnifferBaseliner\BaselineCreator;
+use IODigital\CodeSnifferBaseliner\BasePathFinder;
+use IODigital\CodeSnifferBaseliner\Filesystem\Filesystem;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
+use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
+use IODigital\CodeSnifferBaseliner\Tests\Filesystem\FilesystemFactory;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\RunnerFactory;
+use IODigital\CodeSnifferBaseliner\Tests\SourceCodeProcessor\AddBaselineProcessorFactory;
+use IODigital\CodeSnifferBaseliner\Util\OutputWriter;
 
 class BaselinerCreatorFactory
 {

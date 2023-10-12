@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
+namespace IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Totals;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Totals;
 
 use function array_map;
 use function array_sum;

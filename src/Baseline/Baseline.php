@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Baseline;
+namespace IODigital\CodeSnifferBaseliner\Baseline;
 
 class Baseline
 {

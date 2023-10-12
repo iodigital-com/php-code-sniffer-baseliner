@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ruleset>
   <file>src</file>
-  <rule ref="ISAAC"/>
+  <rule ref="IO"/>
   <config name="php_version" value="70300"/>
   <config name="testVersion" value="7.3-8.1"/>
 </ruleset>

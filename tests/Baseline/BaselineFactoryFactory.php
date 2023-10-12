@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\Baseline;
+namespace IODigital\CodeSnifferBaseliner\Tests\Baseline;
 
-use ISAAC\CodeSnifferBaseliner\Baseline\BaselineFactory;
+use IODigital\CodeSnifferBaseliner\Baseline\BaselineFactory;
 
 class BaselineFactoryFactory
 {

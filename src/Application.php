@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner;
+namespace IODigital\CodeSnifferBaseliner;
 
 use Exception;
 use InvalidArgumentException;
-use ISAAC\CodeSnifferBaseliner\Baseline\BaselineFactory;
-use ISAAC\CodeSnifferBaseliner\Command\CreateBaseline;
-use ISAAC\CodeSnifferBaseliner\Command\ShowHelp;
-use ISAAC\CodeSnifferBaseliner\Filesystem\NativeFilesystem;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
-use ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
-use ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLineParser;
-use ISAAC\CodeSnifferBaseliner\Util\OutputWriter;
+use IODigital\CodeSnifferBaseliner\Baseline\BaselineFactory;
+use IODigital\CodeSnifferBaseliner\Command\CreateBaseline;
+use IODigital\CodeSnifferBaseliner\Command\ShowHelp;
+use IODigital\CodeSnifferBaseliner\Filesystem\NativeFilesystem;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
+use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
+use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLineParser;
+use IODigital\CodeSnifferBaseliner\Util\OutputWriter;
 use Throwable;
 
 use function array_shift;

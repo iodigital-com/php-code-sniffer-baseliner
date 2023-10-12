@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Filesystem;
+namespace IODigital\CodeSnifferBaseliner\Filesystem;
 
 interface Filesystem
 {

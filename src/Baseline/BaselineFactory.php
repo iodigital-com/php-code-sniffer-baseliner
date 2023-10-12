@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Baseline;
+namespace IODigital\CodeSnifferBaseliner\Baseline;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
 
 use function array_map;
 

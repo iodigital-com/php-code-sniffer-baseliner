@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\SourceCodeProcessor;
+namespace IODigital\CodeSnifferBaseliner\SourceCodeProcessor;
 
-use ISAAC\CodeSnifferBaseliner\SourceCodeProcessor\Exception\MergeException;
+use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\Exception\MergeException;
 
 use function array_merge;
 use function array_unique;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
+namespace IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Message;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Message;
 
 class MessageFactory
 {
