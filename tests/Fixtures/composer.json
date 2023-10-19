@@ -1,9 +1,9 @@
 {
   "require": {
-    "isaac/php-code-sniffer-standard": "*"
+    "iodigital-com/php-code-sniffer-standard": "*"
   },
   "repositories": {
-    "isaac/php-code-sniffer-standard": {
+    "iodigital-com/php-code-sniffer-standard": {
       "type": "path",
       "url": "../../"
     }

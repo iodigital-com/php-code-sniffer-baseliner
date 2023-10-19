@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests;
+namespace IODigital\CodeSnifferBaseliner\Tests;
 
-use ISAAC\CodeSnifferBaseliner\BaselineCreator;
-use ISAAC\CodeSnifferBaseliner\BasePathFinder;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
-use ISAAC\CodeSnifferBaseliner\Tests\Filesystem\MemoryFilesystem;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\FileReportFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\MessageFactory;
-use ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\ReportFactory;
-use ISAAC\CodeSnifferBaseliner\Util\OutputWriter;
+use IODigital\CodeSnifferBaseliner\BaselineCreator;
+use IODigital\CodeSnifferBaseliner\BasePathFinder;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
+use IODigital\CodeSnifferBaseliner\Tests\Filesystem\MemoryFilesystem;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\FileReportFactory;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\MessageFactory;
+use IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report\ReportFactory;
+use IODigital\CodeSnifferBaseliner\Util\OutputWriter;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

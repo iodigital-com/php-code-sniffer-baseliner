@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\SourceCodeProcessor;
+namespace IODigital\CodeSnifferBaseliner\SourceCodeProcessor;
 
-use ISAAC\CodeSnifferBaseliner\PhpTokenizer\TokenizedSourceCode;
-use ISAAC\CodeSnifferBaseliner\PhpTokenizer\Tokenizer;
+use IODigital\CodeSnifferBaseliner\PhpTokenizer\TokenizedSourceCode;
+use IODigital\CodeSnifferBaseliner\PhpTokenizer\Tokenizer;
 
 use function array_key_exists;
 use function array_splice;

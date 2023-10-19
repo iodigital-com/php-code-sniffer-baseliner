@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Command;
+namespace IODigital\CodeSnifferBaseliner\Command;
 
 class ShowHelp
 {

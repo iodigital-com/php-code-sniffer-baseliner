@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests;
+namespace IODigital\CodeSnifferBaseliner\Tests;
 
-use ISAAC\CodeSnifferBaseliner\Application;
+use IODigital\CodeSnifferBaseliner\Application;
 use PHPUnit\Framework\TestCase;
 
 use function chdir;

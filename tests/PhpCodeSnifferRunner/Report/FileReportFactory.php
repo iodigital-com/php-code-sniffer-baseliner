@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
+namespace IODigital\CodeSnifferBaseliner\Tests\PhpCodeSnifferRunner\Report;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Message;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Message;
 
 use function array_filter;
 use function count;

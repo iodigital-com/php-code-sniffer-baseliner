@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\Filesystem;
+namespace IODigital\CodeSnifferBaseliner\Tests\Filesystem;
 
-use ISAAC\CodeSnifferBaseliner\Filesystem\Filesystem;
+use IODigital\CodeSnifferBaseliner\Filesystem\Filesystem;
 
 class FilesystemFactory
 {

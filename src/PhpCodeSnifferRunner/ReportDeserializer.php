@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner;
+namespace IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Message;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Totals;
-use ISAAC\CodeSnifferBaseliner\Util\PropertyAccessor;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\FileReport;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Message;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Totals;
+use IODigital\CodeSnifferBaseliner\Util\PropertyAccessor;
 use RuntimeException;
 
 use function array_map;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests;
+namespace IODigital\CodeSnifferBaseliner\Tests;
 
-use ISAAC\CodeSnifferBaseliner\BasePathFinder;
+use IODigital\CodeSnifferBaseliner\BasePathFinder;
 
 class BasePathFinderFactory
 {

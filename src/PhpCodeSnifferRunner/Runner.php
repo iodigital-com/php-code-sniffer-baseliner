@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner;
+namespace IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner;
 
-use ISAAC\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report\Report;
 use RuntimeException;
 
 use function array_key_exists;

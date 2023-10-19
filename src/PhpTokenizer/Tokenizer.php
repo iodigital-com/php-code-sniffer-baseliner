@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\PhpTokenizer;
+namespace IODigital\CodeSnifferBaseliner\PhpTokenizer;
 
 use function is_array;
 use function token_get_all;

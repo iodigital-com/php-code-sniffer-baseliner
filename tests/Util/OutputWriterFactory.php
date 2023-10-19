@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ISAAC\CodeSnifferBaseliner\Tests\Util;
+namespace IODigital\CodeSnifferBaseliner\Tests\Util;
 
-use ISAAC\CodeSnifferBaseliner\Util\OutputWriter;
+use IODigital\CodeSnifferBaseliner\Util\OutputWriter;
 
 class OutputWriterFactory
 {
