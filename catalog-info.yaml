@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: php-code-sniffer-baseliner
+  title: PHP_CodeSniffer Baseliner
+  description: Automatically add `phpcs:ignore` and `phpcs:disable`/`phpcs:enable` instructions to a codebase.
+  namespace: io
+  tags:
+    - php
+  annotations:
+    jira/project-key: IDEVT
+    jira/label: php-code-sniffer-baseliner
+spec:
+  type: tool
+  lifecycle: development
+  owner: default/team_chapter_php_eindhoven
