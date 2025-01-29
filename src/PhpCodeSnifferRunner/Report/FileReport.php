@@ -9,15 +9,15 @@ class FileReport
     /**
      * @var int
      */
-    private $errorCount;
+    private int $errorCount;
     /**
      * @var int
      */
-    private $warningCount;
+    private int $warningCount;
     /**
      * @var array<Message>
      */
-    private $messages;
+    private array $messages;
 
     /**
      * @param array<Message> $messages

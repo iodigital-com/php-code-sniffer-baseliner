@@ -6,18 +6,9 @@ namespace IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Report;
 
 class Totals
 {
-    /**
-     * @var int
-     */
-    private $errors;
-    /**
-     * @var int
-     */
-    private $warnings;
-    /**
-     * @var int
-     */
-    private $fixable;
+    private int $errors;
+    private int $warnings;
+    private int $fixable;
 
     public function __construct(int $errors, int $warnings, int $fixable)
     {

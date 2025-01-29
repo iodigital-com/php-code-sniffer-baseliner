@@ -9,7 +9,7 @@ class Baseline
     /**
      * @var array<array<array<string>>>
      */
-    private $violatedRulesByFileAndLineNumber;
+    private array $violatedRulesByFileAndLineNumber;
 
     /**
      * @param array<array<array<string>>> $violatedRulesByFileAndLineNumber

@@ -26,11 +26,11 @@ class TokenizedSourceCode implements IteratorAggregate
     /**
      * @var array<array<Token>>
      */
-    private $tokensByStartingLineNumber = [];
+    private array $tokensByStartingLineNumber = [];
     /**
      * @var array<int, array<Token>>
      */
-    private $tokensByEndingLineNumber = [];
+    private array $tokensByEndingLineNumber = [];
 
     /**
      * @param array<Token> $tokens

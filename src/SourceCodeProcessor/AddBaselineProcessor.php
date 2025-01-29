@@ -27,7 +27,7 @@ class AddBaselineProcessor
     /**
      * @var InstructionCommentLineParser
      */
-    private $ignoreCommentParser;
+    private InstructionCommentLineParser $ignoreCommentParser;
 
     public function __construct(
         InstructionCommentLineParser $ignoreCommentLineParser
