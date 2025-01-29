@@ -104,12 +104,6 @@ class Application
 
     private function showHelp(ShowHelp $command): void
     {
-        echo <<<HELP
-Usage: {$command->getCommandName()} [command]
-
-Available commands:
-  create-baseline      Create a new baseline
-
-HELP;
+        echo sprintf('Usage: %s [command] create-baseline', $command->getCommandName());
     }
 }

@@ -24,7 +24,7 @@
         "bin/phpcs-baseliner"
     ],
     "require-dev": {
-        "iodigital-com/php-code-sniffer-standard": "^29.0",
+        "iodigital-com/php-code-sniffer-standard": "^29.2",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.6.8",
         "phpstan/phpstan-phpunit": "^1.1.1",
