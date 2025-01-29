@@ -18,23 +18,23 @@ class InstructionComment
     /**
      * @var string
      */
-    private $indentation;
+    private string $indentation;
     /**
      * @var string
      */
-    private $commentStart;
+    private string $commentStart;
     /**
      * @var string
      */
-    private $instruction;
+    private string $instruction;
     /**
      * @var array<string>
      */
-    private $rules;
+    private array $rules;
     /**
      * @var array<string>
      */
-    private $messages;
+    private array $messages;
 
     /**
      * @param array<string> $rules

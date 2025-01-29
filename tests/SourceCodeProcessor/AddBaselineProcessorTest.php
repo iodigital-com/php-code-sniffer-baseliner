@@ -12,7 +12,7 @@ class AddBaselineProcessorTest extends TestCase
     /**
      * @var AddBaselineProcessor
      */
-    private $addBaselineProcessor;
+    private AddBaselineProcessor $addBaselineProcessor;
 
     protected function setUp(): void
     {
