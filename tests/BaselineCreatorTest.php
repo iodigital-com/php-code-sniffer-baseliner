@@ -36,15 +36,15 @@ PHP;
     /**
      * @var BaselineCreator
      */
-    private $baselineCreator;
+    private BaselineCreator $baselineCreator;
     /**
      * @var MemoryFilesystem
      */
-    private $filesystem;
+    private MemoryFilesystem $filesystem;
     /**
      * @var Runner&MockObject
      */
-    private $runnerMock;
+    private Runner&MockObject $runnerMock;
 
     protected function setUp(): void
     {

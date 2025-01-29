@@ -9,11 +9,11 @@ class Report
     /**
      * @var Totals
      */
-    private $totals;
+    private Totals $totals;
     /**
      * @var array<FileReport>
      */
-    private $fileReportsByFilename;
+    private array $fileReportsByFilename;
 
     /**
      * @param array<FileReport> $fileReportsByFilename

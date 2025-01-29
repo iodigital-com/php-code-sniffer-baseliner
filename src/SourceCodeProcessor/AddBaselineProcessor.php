@@ -27,7 +27,7 @@ class AddBaselineProcessor
     /**
      * @var InstructionCommentLineParser
      */
-    private $ignoreCommentParser;
+    private InstructionCommentLineParser $ignoreCommentParser;
 
     public function __construct(
         InstructionCommentLineParser $ignoreCommentLineParser
@@ -41,6 +41,10 @@ class AddBaselineProcessor
     public function addRuleExclusionsByLineNumber(string $sourceCode, array $ruleExclusionsByLineNumber): string
     {
         $lines = preg_split(sprintf("/\r?\n/"), $sourceCode);
+        if ($lines === false) {
+            return $sourceCode;
+        }
+
         $tokenizedSourceCode = (new Tokenizer())->tokenize($sourceCode);
 
         $lineNumbersAdded = [];
