@@ -2,3 +2,9 @@
 /composer.lock
 /vendor/
 /.phpunit.cache
+
+# Local Claude Code / MCP configuration
+/.claude/
+/.mcp.json
+/CLAUDE.md
+/CLAUDE.local.md
