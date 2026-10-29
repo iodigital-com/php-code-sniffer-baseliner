@@ -11,6 +11,7 @@ use function substr;
 use function substr_count;
 use function token_name;
 
+use const JSON_THROW_ON_ERROR;
 use const PHP_EOL;
 use const T_COMMENT;
 use const T_CONSTANT_ENCAPSED_STRING;
@@ -89,7 +90,7 @@ class Token
             '%d-%d: %s (type: %s)',
             $this->startingLineNumber,
             $this->getEndingLineNumber(),
-            json_encode($this->contents),
+            json_encode($this->contents, JSON_THROW_ON_ERROR),
             token_name($this->type)
         );
     }
