@@ -73,6 +73,27 @@ class UnnecessaryBaselineDetectorTest extends TestCase
 
         self::assertSame(1, $this->detector->detect());
         self::assertContains('b.php:2 phpcs:ignore A.B.C', $lines);
-        self::assertContains('Found 1 unnecessary baseline(s) in 1 file(s).', $lines);
+        self::assertContains('Found 1 unnecessary baseline in 1 file.', $lines);
+    }
+
+    public function testPluralizesSummary(): void
+    {
+        $this->runnerMock->method('run')->willReturn(
+            ReportFactory::createWithFileReportsByFilename([
+                'a.php' => FileReportFactory::createWithMessages([]),
+                'b.php' => FileReportFactory::createWithMessages([]),
+            ])
+        );
+        $source = "<?php\n// phpcs:ignore A.B.C -- baseline\n// phpcs:ignore D.E.F -- baseline\necho 1;\n";
+        $this->filesystem->replaceContents('a.php', $source);
+        $this->filesystem->replaceContents('b.php', $source);
+
+        $lines = [];
+        $this->outputWriterMock->method('writeLine')->willReturnCallback(static function (string $line) use (&$lines) {
+            $lines[] = $line;
+        });
+
+        self::assertSame(4, $this->detector->detect());
+        self::assertContains('Found 4 unnecessary baselines in 2 files.', $lines);
     }
 }

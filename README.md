@@ -36,7 +36,7 @@ rules within it) that does not suppress any violation anymore, e.g.:
 ```
 src/Foo.php:12 phpcs:ignore Generic.Files.LineLength.TooLong
 src/Bar.php:30 phpcs:disable Generic.Files.LineLength.TooLong (phpcs:enable on line 34)
-Found 2 unnecessary baseline(s) in 2 file(s).
+Found 2 unnecessary baselines in 2 files.
 ```
 
 The command exits with a non-zero exit code when unnecessary baselines are found. It does not remove them, this is left

@@ -86,9 +86,13 @@ class UnnecessaryBaselineDetector
         if ($total === 0) {
             $this->outputWriter->writeLine('No unnecessary baselines found.');
         } else {
-            $this->outputWriter->writeLine(
-                sprintf('Found %d unnecessary baseline(s) in %d file(s).', $total, $totalFiles)
-            );
+            $this->outputWriter->writeLine(sprintf(
+                'Found %d unnecessary %s in %d %s.',
+                $total,
+                $total === 1 ? 'baseline' : 'baselines',
+                $totalFiles,
+                $totalFiles === 1 ? 'file' : 'files'
+            ));
         }
         return $total;
     }
