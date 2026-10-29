@@ -4,8 +4,8 @@
   <file>tests</file>
   <exclude-pattern>/tests/Fixtures/</exclude-pattern>
   <rule ref="IO"/>
-  <config name="php_version" value="80100"/>
-  <config name="testVersion" value="8.1-8.4"/>
+  <config name="php_version" value="80200"/>
+  <config name="testVersion" value="8.2-8.5"/>
   <arg name="extensions" value="php"/>
   <arg name="cache"/>
 </ruleset>
