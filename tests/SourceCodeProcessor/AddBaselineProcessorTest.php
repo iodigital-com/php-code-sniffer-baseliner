@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace IODigital\CodeSnifferBaseliner\Tests\SourceCodeProcessor;
 
 use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 class AddBaselineProcessorTest extends TestCase
@@ -23,8 +24,8 @@ class AddBaselineProcessorTest extends TestCase
 
     /**
      * @param array<array<string>> $ruleExclusionsByLineNumber
-     * @dataProvider \IODigital\CodeSnifferBaseliner\Tests\SourceCodeProcessor\AddBaselineProcessorTestDataProvider::provide
      */
+    #[DataProviderExternal(AddBaselineProcessorTestDataProvider::class, 'provide')]
     public function testAddRuleExclusionsByLineNumber(
         string $fileContents,
         array $ruleExclusionsByLineNumber,
