@@ -24,12 +24,37 @@ In order to add `phpcs:ignore` and `phpcs:disable`/`phpcs:enable` instructions t
 vendor/bin/phpcs-baseliner create-baseline
 ```
 
+To detect baselines that are no longer needed, run:
+
+```sh
+vendor/bin/phpcs-baseliner detect-unnecessary-baselines
+```
+
+This reports every `phpcs:ignore` and `phpcs:disable`/`phpcs:enable` instruction with a `baseline` message (or just the
+rules within it) that does not suppress any violation anymore, e.g.:
+
+```
+src/Foo.php:12 phpcs:ignore Generic.Files.LineLength.TooLong
+src/Bar.php:30 phpcs:disable Generic.Files.LineLength.TooLong (phpcs:enable on line 34)
+Found 2 unnecessary baseline(s) in 2 file(s).
+```
+
+The command exits with a non-zero exit code when unnecessary baselines are found. It does not remove them, this is left
+to you. Pass `--include-non-baseline` to also check suppressions that have no `baseline` message.
+
 ## How does it work?
 
 First, the tool runs `vendor/bin/phpcs` and captures the report. Based on the report output, it will add
 `// phpcs:ignore` instructions to the source code for each violation. It will only ignore the sniffs that actually are
 violated. In rare cases, adding these instructions could introduce new violations. Therefore, this process is repeated
 until no violations are reported by `phpcs`.
+
+### Detecting unnecessary baselines
+
+`detect-unnecessary-baselines` runs `vendor/bin/phpcs` with `--ignore-annotations`, so that all violations are reported,
+including the suppressed ones. A baseline is unnecessary when none of the rules it lists is violated on the line(s) it
+applies to: the next line for `phpcs:ignore` (or the same line for a trailing comment), and the lines up to the
+`phpcs:enable` for `phpcs:disable`.
 
 ## Example
 

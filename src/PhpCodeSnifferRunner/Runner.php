@@ -15,9 +15,13 @@ use function strpos;
 
 class Runner
 {
-    public function run(string $basePath): Report
+    public function run(string $basePath, bool $ignoreAnnotations = false): Report
     {
-        $cliCommand = sprintf('vendor/bin/phpcs -q --report=json --basepath=%s', escapeshellarg($basePath));
+        $cliCommand = sprintf(
+            'vendor/bin/phpcs -q --report=json%s --basepath=%s',
+            $ignoreAnnotations ? ' --ignore-annotations' : '',
+            escapeshellarg($basePath)
+        );
 
         // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
         exec($cliCommand, $output);
