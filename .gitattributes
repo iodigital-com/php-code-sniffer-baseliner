@@ -4,3 +4,6 @@
 /phpunit.xml.dist export-ignore
 /phpcs.xml.dist export-ignore
 /phpstan.neon.dist export-ignore
+/cliff.toml export-ignore
+/RELEASING.md export-ignore
+/scripts export-ignore

@@ -1,0 +1,24 @@
+name: release
+
+on:
+  push:
+    tags:
+    - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: "ubuntu-slim"
+
+    steps:
+    - uses: "actions/checkout@v4"
+    # actions/checkout can turn an annotated tag into a lightweight one, so fetch the tag again
+    - run: "git fetch --tags --force origin"
+    - name: "Read the tag message"
+      run: "git tag --list --format='%(contents)' \"${GITHUB_REF_NAME}\" > release-notes.md"
+    - name: "Create the release"
+      env:
+        GH_TOKEN: "${{ github.token }}"
+      run: "gh release create \"${GITHUB_REF_NAME}\" --verify-tag --title \"${GITHUB_REF_NAME}\" --notes-file release-notes.md"
