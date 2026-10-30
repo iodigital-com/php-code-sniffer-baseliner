@@ -1,6 +1,0 @@
-{
-  "classification": "cli-application",
-  "jiraKey": "IDEVT",
-  "jiraComponent": "php",
-  "jiraSummaryPrefix": "PHP CodeSniffer Baseliner"
-}

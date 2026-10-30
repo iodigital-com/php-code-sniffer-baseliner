@@ -1,2 +1,0 @@
-#!/bin/bash
-fin exec vendor/bin/phpstan analyze --configuration=phpstan.neon "$@"

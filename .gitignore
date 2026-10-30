@@ -8,3 +8,6 @@
 /.mcp.json
 /CLAUDE.md
 /CLAUDE.local.md
+/phpcs.xml
+/phpstan.neon
+/phpunit.xml

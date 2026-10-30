@@ -37,7 +37,7 @@ Let's say we want to enforce `declare(strict_types = 1);` statements and native 
 PHP_CodeSniffer. The [Slevomat Coding Standard][slevomat-coding-standard] has sniffs for this:
 [`SlevomatCodingStandard.TypeHints.DeclareStrictTypes`][declare-strict-types-sniff]
 and [`SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint`][property-type-hint-sniff]. We install
-Slevomat Coding Standard and add the sniffs to our ruleset in `phpcs.xml`.
+Slevomat Coding Standard and add the sniffs to our ruleset in `phpcs.xml.dist`.
 
 If we now run `vendor/bin/phpcs-baseliner create-baseline` in our project, it will add ignore instructions in all files
 not containing `declare(strict_types = 1);` statements or native property type declarations:
