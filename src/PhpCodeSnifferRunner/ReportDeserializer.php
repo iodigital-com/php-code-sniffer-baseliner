@@ -43,7 +43,7 @@ class ReportDeserializer
     }
 
     /**
-     * @return array<FileReport>
+     * @return array<string, FileReport>
      */
     private function denormalizeFileReports(object $normalizedFiles): array
     {

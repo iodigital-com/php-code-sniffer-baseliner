@@ -78,7 +78,7 @@ class UnnecessaryBaselineDetector
         $total = 0;
         $totalFiles = 0;
         foreach ($violatedRulesByFileAndLineNumber as $file => $violatedRulesByLineNumber) {
-            $found = $this->reportForFile((string) $file, $violatedRulesByLineNumber, $includeNonBaseline);
+            $found = $this->reportForFile($file,$violatedRulesByLineNumber, $includeNonBaseline);
             $total += $found;
             $totalFiles += $found > 0 ? 1 : 0;
         }
@@ -98,7 +98,7 @@ class UnnecessaryBaselineDetector
     }
 
     /**
-     * @param array<array<string>> $violatedRulesByLineNumber
+     * @param array<int, array<string>> $violatedRulesByLineNumber
      */
     private function reportForFile(string $file, array $violatedRulesByLineNumber, bool $includeNonBaseline): int
     {
