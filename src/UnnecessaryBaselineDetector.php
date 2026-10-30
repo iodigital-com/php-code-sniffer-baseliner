@@ -70,7 +70,7 @@ class UnnecessaryBaselineDetector
 
         $this->outputWriter->writeLine('Running PHP_CodeSniffer ignoring annotations (this may take a while)...');
 
-        $report = $this->runner->run($basePath, true);
+        $report = $this->runner->runIgnoringAnnotations($basePath);
         $violatedRulesByFileAndLineNumber = $this->baselineFactory
             ->createFromReport($report)
             ->getViolatedRulesByFileAndLineNumber();

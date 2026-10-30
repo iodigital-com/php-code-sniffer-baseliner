@@ -15,7 +15,17 @@ use function strpos;
 
 class Runner
 {
-    public function run(string $basePath, bool $ignoreAnnotations = false): Report
+    public function run(string $basePath): Report
+    {
+        return $this->runPhpCodeSniffer($basePath, false);
+    }
+
+    public function runIgnoringAnnotations(string $basePath): Report
+    {
+        return $this->runPhpCodeSniffer($basePath, true);
+    }
+
+    private function runPhpCodeSniffer(string $basePath, bool $ignoreAnnotations): Report
     {
         $cliCommand = sprintf(
             'vendor/bin/phpcs -q --report=json%s --basepath=%s',

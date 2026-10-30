@@ -43,6 +43,14 @@ class Bar {
 
 PHP;
     // phpcs:enable SlevomatCodingStandard.Files.LineLength.LineTooLong
+    private const UNNECESSARY_BASELINE_SOURCE = <<<'PHP'
+
+// phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace -- baseline
+function baz(): void
+{
+}
+
+PHP;
 
     /**
      * @var Application
@@ -58,10 +66,50 @@ PHP;
 
     public function testRun(): void
     {
+        [, $output] = $this->runInFixtures(self::TEST_SOURCE_FILE_CONTENTS, 'create-baseline');
+
+        self::assertSame(
+            self::EXPECTED_TEST_SOURCE_FILE_CONTENTS,
+            file_get_contents(self::TEST_FILE_PATH),
+            $output
+        );
+    }
+
+    public function testDetectUnnecessaryBaselines(): void
+    {
+        [$exitCode, $output] = $this->runInFixtures(
+            self::EXPECTED_TEST_SOURCE_FILE_CONTENTS . self::UNNECESSARY_BASELINE_SOURCE,
+            'detect-unnecessary-baselines'
+        );
+
+        self::assertSame(1, $exitCode, $output);
+        self::assertStringContainsString(
+            'test.php:9 phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace',
+            $output
+        );
+        self::assertStringContainsString('Found 1 unnecessary baseline in 1 file.', $output);
+    }
+
+    public function testDetectUnnecessaryBaselinesFindsNothingWhenAllBaselinesAreNecessary(): void
+    {
+        [$exitCode, $output] = $this->runInFixtures(
+            self::EXPECTED_TEST_SOURCE_FILE_CONTENTS,
+            'detect-unnecessary-baselines'
+        );
+
+        self::assertSame(0, $exitCode, $output);
+        self::assertStringContainsString('No unnecessary baselines found.', $output);
+    }
+
+    /**
+     * @return array{int, string} The exit code and the output of the application
+     */
+    private function runInFixtures(string $sourceFileContents, string $command): array
+    {
         if (!file_exists(dirname(self::TEST_FILE_PATH))) {
             mkdir(dirname(self::TEST_FILE_PATH), 0777, true);
         }
-        file_put_contents(self::TEST_FILE_PATH, self::TEST_SOURCE_FILE_CONTENTS);
+        file_put_contents(self::TEST_FILE_PATH, $sourceFileContents);
 
         $originalCwd = getcwd();
         self::assertNotFalse($originalCwd);
@@ -70,17 +118,13 @@ PHP;
             // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
             shell_exec('composer install 2>&1');
             ob_start();
-            $this->application->run('phpcs-baseliner', 'create-baseline');
+            $exitCode = $this->application->run('phpcs-baseliner', $command);
             $output = ob_get_clean();
             self::assertNotFalse($output);
         } finally {
             chdir($originalCwd);
         }
 
-        self::assertSame(
-            self::EXPECTED_TEST_SOURCE_FILE_CONTENTS,
-            file_get_contents(self::TEST_FILE_PATH),
-            $output
-        );
+        return [$exitCode, $output];
     }
 }

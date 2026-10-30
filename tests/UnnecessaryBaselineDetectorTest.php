@@ -57,7 +57,7 @@ class UnnecessaryBaselineDetectorTest extends TestCase
 
     public function testDetectsUnnecessaryBaselines(): void
     {
-        $this->runnerMock->expects(self::once())->method('run')->with(self::anything(), true)->willReturn(
+        $this->runnerMock->expects(self::once())->method('runIgnoringAnnotations')->willReturn(
             ReportFactory::createWithFileReportsByFilename([
                 'a.php' => FileReportFactory::createWithMessages([MessageFactory::createWithSourceAndLine('A.B.C', 3)]),
                 'b.php' => FileReportFactory::createWithMessages([]),
@@ -78,7 +78,7 @@ class UnnecessaryBaselineDetectorTest extends TestCase
 
     public function testPluralizesSummary(): void
     {
-        $this->runnerMock->method('run')->willReturn(
+        $this->runnerMock->method('runIgnoringAnnotations')->willReturn(
             ReportFactory::createWithFileReportsByFilename([
                 'a.php' => FileReportFactory::createWithMessages([]),
                 'b.php' => FileReportFactory::createWithMessages([]),
