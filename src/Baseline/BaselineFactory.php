@@ -20,7 +20,7 @@ class BaselineFactory
     }
 
     /**
-     * @return array<array<string>>
+     * @return array<int, array<string>>
      */
     private function groupSourcesByLine(FileReport $fileReport): array
     {

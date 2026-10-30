@@ -8,11 +8,14 @@ use Exception;
 use InvalidArgumentException;
 use IODigital\CodeSnifferBaseliner\Baseline\BaselineFactory;
 use IODigital\CodeSnifferBaseliner\Command\CreateBaseline;
+use IODigital\CodeSnifferBaseliner\Command\DetectUnnecessaryBaselines;
 use IODigital\CodeSnifferBaseliner\Command\ShowHelp;
 use IODigital\CodeSnifferBaseliner\Filesystem\NativeFilesystem;
 use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
 use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
 use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLineParser;
+use IODigital\CodeSnifferBaseliner\UnnecessaryBaseline\InstructionCommentCollector;
+use IODigital\CodeSnifferBaseliner\UnnecessaryBaseline\UnnecessaryBaselineFinder;
 use IODigital\CodeSnifferBaseliner\Util\OutputWriter;
 use Throwable;
 
@@ -34,6 +37,14 @@ class Application
                 new NativeFilesystem(),
                 new AddBaselineProcessor(new InstructionCommentLineParser()),
                 new OutputWriter()
+            ),
+            new UnnecessaryBaselineDetector(
+                new BasePathFinder(),
+                new Runner(),
+                new BaselineFactory(),
+                new NativeFilesystem(),
+                new UnnecessaryBaselineFinder(new InstructionCommentCollector(new InstructionCommentLineParser())),
+                new OutputWriter()
             )
         );
     }
@@ -43,22 +54,28 @@ class Application
      */
     private BaselineCreator $baselineCreator;
 
+    /**
+     * @var UnnecessaryBaselineDetector
+     */
+    private UnnecessaryBaselineDetector $unnecessaryBaselineDetector;
+
     public function __construct(
-        BaselineCreator $baselineCreator
+        BaselineCreator $baselineCreator,
+        UnnecessaryBaselineDetector $unnecessaryBaselineDetector
     ) {
         $this->baselineCreator = $baselineCreator;
+        $this->unnecessaryBaselineDetector = $unnecessaryBaselineDetector;
     }
 
     public function run(string ...$arguments): int
     {
         try {
             $command = $this->getCommandForArguments(...$arguments);
-            $this->runCommand($command);
+            return $this->runCommand($command);
         } catch (Throwable $throwable) {
             echo ((string) $throwable) . PHP_EOL;
             return 1;
         }
-        return 0;
     }
 
     /**
@@ -77,10 +94,24 @@ class Application
         switch ($commandName) {
             case 'create-baseline':
                 return new CreateBaseline();
+            case 'detect-unnecessary-baselines':
+                return $this->getDetectUnnecessaryBaselinesCommand(...$arguments);
             case 'help':
             default:
                 return $this->getShowHelpCommand($binaryName);
         }
+    }
+
+    private function getDetectUnnecessaryBaselinesCommand(string ...$options): DetectUnnecessaryBaselines
+    {
+        $includeNonBaseline = false;
+        foreach ($options as $option) {
+            if ($option !== '--include-non-baseline') {
+                throw new InvalidArgumentException(sprintf('Unknown option \'%s\'.', $option));
+            }
+            $includeNonBaseline = true;
+        }
+        return new DetectUnnecessaryBaselines($includeNonBaseline);
     }
 
     private function getShowHelpCommand(?string $commandName = null): ShowHelp
@@ -88,10 +119,13 @@ class Application
         return new ShowHelp($commandName !== null ? $commandName : 'phpcs-baseliner');
     }
 
-    private function runCommand(object $command): void
+    private function runCommand(object $command): int
     {
         if ($command instanceof CreateBaseline) {
             $this->baselineCreator->create();
+        } elseif ($command instanceof DetectUnnecessaryBaselines) {
+            $found = $this->unnecessaryBaselineDetector->detect($command->includesNonBaseline());
+            return $found > 0 ? 1 : 0;
         } elseif ($command instanceof ShowHelp) {
             $this->showHelp($command);
         } else {
@@ -99,10 +133,15 @@ class Application
                 sprintf('Unable to handle command of type \'%s\'.', $command::class)
             );
         }
+        return 0;
     }
 
     private function showHelp(ShowHelp $command): void
     {
-        echo sprintf('Usage: %s [command] create-baseline', $command->getCommandName());
+        echo sprintf(
+            'Usage: %1$s create-baseline' . PHP_EOL
+            . '       %1$s detect-unnecessary-baselines [--include-non-baseline]',
+            $command->getCommandName()
+        );
     }
 }
