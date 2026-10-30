@@ -2,16 +2,17 @@
 
 Releases are tags on the `main` branch. The tag message contains the release notes, which are generated from the
 [Conventional Commits][conventional-commits] since the previous tag by [git-cliff][git-cliff] (see `cliff.toml`).
-When a tag is pushed, the `release` GitHub Actions workflow creates a GitHub release with the tag message as its
-description. Packagist picks up the tag by itself.
+When a tag is pushed, the `release` GitHub Actions workflow runs the tests and, only if they pass, creates a GitHub
+release with the tag message as its description. Packagist picks up the tag by itself, without waiting for the tests.
 
 ## Creating a release
 
 1. Merge `develop` into `main` and make sure your local `main` is up to date:
 
    ```shell
-   git checkout main
-   git pull
+   git switch main
+   git pull --ff-only
+   git merge --no-ff develop
    ```
 
 2. Create the annotated tag:
@@ -26,13 +27,17 @@ description. Packagist picks up the tag by itself.
    The version is derived from the commit types: a `feat` results in a minor version, a `fix` in a patch version, and a
    breaking change (`!` after the type or a `BREAKING CHANGE:` footer) in a major version.
 
-3. Check the tag shown by the script, then push it:
+3. Check the tag shown by the script, then push `main` and the tag:
 
    ```shell
-   git push origin <tag>
+   git push --atomic origin main <tag>
    ```
 
    If the tag is wrong, delete it with `git tag -d <tag>` and run the script again.
+
+   The `release` workflow runs the tests for the tag and creates the GitHub release only when they pass. If they fail,
+   no GitHub release is created, but the tag stays on the remote and Packagist may already have picked it up. Delete it
+   with `git push origin --delete <tag>`, fix the problem and release again.
 
 ## Commit messages
 
