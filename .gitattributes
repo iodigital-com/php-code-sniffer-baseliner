@@ -6,3 +6,4 @@
 /phpstan.neon.dist export-ignore
 /cliff.toml export-ignore
 /RELEASING.md export-ignore
+/scripts export-ignore

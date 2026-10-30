@@ -14,31 +14,25 @@ description. Packagist picks up the tag by itself.
    git pull
    ```
 
-2. Preview the next version and the release notes:
+2. Create the annotated tag:
 
    ```shell
-   git cliff --bumped-version --unreleased --use-branch-tags
-   git cliff --bump --unreleased --use-branch-tags
+   scripts/create-tag.sh
    ```
+
+   The script shows the next version and the release notes, and asks for confirmation. If you answer anything other
+   than `y`, it aborts without creating a tag. After the tag is created, it is shown with `git show --no-patch`.
 
    The version is derived from the commit types: a `feat` results in a minor version, a `fix` in a patch version, and a
    breaking change (`!` after the type or a `BREAKING CHANGE:` footer) in a major version.
 
-3. Create the annotated tag locally:
+3. Check the tag shown by the script, then push it:
 
    ```shell
-   git tag -a "$(git cliff --bumped-version --unreleased --use-branch-tags)" -m "$(git cliff --bump --unreleased --use-branch-tags)" --cleanup=verbatim
-   ```
-
-   `--cleanup=verbatim` is required, otherwise git removes the markdown headings (lines starting with `#`) from the
-   tag message.
-
-4. Check the tag, then push it:
-
-   ```shell
-   git show --no-patch <tag>
    git push origin <tag>
    ```
+
+   If the tag is wrong, delete it with `git tag -d <tag>` and run the script again.
 
 ## Commit messages
 
