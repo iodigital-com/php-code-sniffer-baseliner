@@ -1,7 +1,9 @@
-/.docksal export-ignore
 /tests export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
-/phpunit.xml export-ignore
-/phpcs.xml export-ignore
-/phpstan.neon export-ignore
+/phpunit.xml.dist export-ignore
+/phpcs.xml.dist export-ignore
+/phpstan.neon.dist export-ignore
+/cliff.toml export-ignore
+/RELEASING.md export-ignore
+/scripts export-ignore

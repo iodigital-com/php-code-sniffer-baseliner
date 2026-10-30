@@ -60,6 +60,22 @@ class InstructionComment
         return $this->instruction;
     }
 
+    /**
+     * @return array<string>
+     */
+    public function getRules(): array
+    {
+        return $this->rules;
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function getMessages(): array
+    {
+        return $this->messages;
+    }
+
     public function hasRules(): bool
     {
         return count($this->rules) > 0;

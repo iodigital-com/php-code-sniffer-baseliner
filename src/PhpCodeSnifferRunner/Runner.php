@@ -17,7 +17,21 @@ class Runner
 {
     public function run(string $basePath): Report
     {
-        $cliCommand = sprintf('vendor/bin/phpcs -q --report=json --basepath=%s', escapeshellarg($basePath));
+        return $this->runPhpCodeSniffer($basePath, false);
+    }
+
+    public function runIgnoringAnnotations(string $basePath): Report
+    {
+        return $this->runPhpCodeSniffer($basePath, true);
+    }
+
+    private function runPhpCodeSniffer(string $basePath, bool $ignoreAnnotations): Report
+    {
+        $cliCommand = sprintf(
+            'vendor/bin/phpcs -q --report=json%s --basepath=%s',
+            $ignoreAnnotations ? ' --ignore-annotations' : '',
+            escapeshellarg($basePath)
+        );
 
         // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
         exec($cliCommand, $output);

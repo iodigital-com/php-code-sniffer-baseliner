@@ -24,6 +24,24 @@ In order to add `phpcs:ignore` and `phpcs:disable`/`phpcs:enable` instructions t
 vendor/bin/phpcs-baseliner create-baseline
 ```
 
+To detect baselines that are no longer needed, run:
+
+```sh
+vendor/bin/phpcs-baseliner detect-unnecessary-baselines
+```
+
+This reports every `phpcs:ignore` and `phpcs:disable`/`phpcs:enable` instruction with a `baseline` message (or just the
+rules within it) that does not suppress any violation anymore, e.g.:
+
+```
+src/Foo.php:12 phpcs:ignore Generic.Files.LineLength.TooLong
+src/Bar.php:30 phpcs:disable Generic.Files.LineLength.TooLong (phpcs:enable on line 34)
+Found 2 unnecessary baselines in 2 files.
+```
+
+The command exits with a non-zero exit code when unnecessary baselines are found. It does not remove them, this is left
+to you. Pass `--include-non-baseline` to also check suppressions that have no `baseline` message.
+
 ## How does it work?
 
 First, the tool runs `vendor/bin/phpcs` and captures the report. Based on the report output, it will add
@@ -31,13 +49,20 @@ First, the tool runs `vendor/bin/phpcs` and captures the report. Based on the re
 violated. In rare cases, adding these instructions could introduce new violations. Therefore, this process is repeated
 until no violations are reported by `phpcs`.
 
+### Detecting unnecessary baselines
+
+`detect-unnecessary-baselines` runs `vendor/bin/phpcs` with `--ignore-annotations`, so that all violations are reported,
+including the suppressed ones. A baseline is unnecessary when none of the rules it lists is violated on the line(s) it
+applies to: the next line for `phpcs:ignore` (or the same line for a trailing comment), and the lines up to the
+`phpcs:enable` for `phpcs:disable`.
+
 ## Example
 
 Let's say we want to enforce `declare(strict_types = 1);` statements and native property type hints using
 PHP_CodeSniffer. The [Slevomat Coding Standard][slevomat-coding-standard] has sniffs for this:
 [`SlevomatCodingStandard.TypeHints.DeclareStrictTypes`][declare-strict-types-sniff]
 and [`SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint`][property-type-hint-sniff]. We install
-Slevomat Coding Standard and add the sniffs to our ruleset in `phpcs.xml`.
+Slevomat Coding Standard and add the sniffs to our ruleset in `phpcs.xml.dist`.
 
 If we now run `vendor/bin/phpcs-baseliner create-baseline` in our project, it will add ignore instructions in all files
 not containing `declare(strict_types = 1);` statements or native property type declarations:
