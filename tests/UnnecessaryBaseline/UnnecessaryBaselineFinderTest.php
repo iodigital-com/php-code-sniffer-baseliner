@@ -12,11 +12,14 @@ use PHPUnit\Framework\TestCase;
 
 use function array_map;
 
+/**
+ * @phpstan-type ExpectedBaseline array{string, int, int|null, array<string>}
+ */
 class UnnecessaryBaselineFinderTest extends TestCase
 {
     /**
      * @param array<int, array<string>> $violations
-     * @param array<array{string, int, int|null, array<string>}> $expected
+     * @param array<ExpectedBaseline> $expected
      * @dataProvider provide
      */
     public function testFind(string $source, array $violations, bool $includeNonBaseline, array $expected): void
@@ -36,7 +39,7 @@ class UnnecessaryBaselineFinderTest extends TestCase
     }
 
     /**
-     * @return iterable<string, array{string, array<int, array<string>>, bool, array<mixed>}>
+     * @return iterable<string, array{string, array<int, array<string>>, bool, array<ExpectedBaseline>}>
      */
     public static function provide(): iterable
     {
@@ -45,7 +48,7 @@ class UnnecessaryBaselineFinderTest extends TestCase
     }
 
     /**
-     * @return iterable<string, array{string, array<int, array<string>>, bool, array<mixed>}>
+     * @return iterable<string, array{string, array<int, array<string>>, bool, array<ExpectedBaseline>}>
      */
     public static function provideIgnores(): iterable
     {
@@ -71,7 +74,7 @@ class UnnecessaryBaselineFinderTest extends TestCase
     }
 
     /**
-     * @return iterable<string, array{string, array<int, array<string>>, bool, array<mixed>}>
+     * @return iterable<string, array{string, array<int, array<string>>, bool, array<ExpectedBaseline>}>
      */
     public static function provideCoverageIgnores(): iterable
     {
@@ -91,7 +94,7 @@ class UnnecessaryBaselineFinderTest extends TestCase
     }
 
     /**
-     * @return iterable<string, array{string, array<int, array<string>>, bool, array<mixed>}>
+     * @return iterable<string, array{string, array<int, array<string>>, bool, array<ExpectedBaseline>}>
      */
     public static function provideMoreIgnores(): iterable
     {
@@ -111,7 +114,7 @@ class UnnecessaryBaselineFinderTest extends TestCase
     }
 
     /**
-     * @return iterable<string, array{string, array<int, array<string>>, bool, array<mixed>}>
+     * @return iterable<string, array{string, array<int, array<string>>, bool, array<ExpectedBaseline>}>
      */
     public static function provideNonBaselineIgnores(): iterable
     {
@@ -130,7 +133,7 @@ class UnnecessaryBaselineFinderTest extends TestCase
     }
 
     /**
-     * @return iterable<string, array{string, array<int, array<string>>, bool, array<mixed>}>
+     * @return iterable<string, array{string, array<int, array<string>>, bool, array<ExpectedBaseline>}>
      */
     public static function provideDisables(): iterable
     {

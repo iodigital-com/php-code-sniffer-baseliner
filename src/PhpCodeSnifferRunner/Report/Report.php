@@ -11,12 +11,12 @@ class Report
      */
     private Totals $totals;
     /**
-     * @var array<string, FileReport>
+     * @var array<FileReport>
      */
     private array $fileReportsByFilename;
 
     /**
-     * @param array<string, FileReport> $fileReportsByFilename
+     * @param array<FileReport> $fileReportsByFilename
      */
     public function __construct(Totals $totals, array $fileReportsByFilename)
     {
@@ -30,7 +30,7 @@ class Report
     }
 
     /**
-     * @return array<string, FileReport>
+     * @return array<FileReport>
      */
     public function getFileReportsByFilename(): array
     {
