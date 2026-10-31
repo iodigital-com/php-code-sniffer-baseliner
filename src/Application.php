@@ -11,6 +11,7 @@ use IODigital\CodeSnifferBaseliner\Command\CreateBaseline;
 use IODigital\CodeSnifferBaseliner\Command\DetectUnnecessaryBaselines;
 use IODigital\CodeSnifferBaseliner\Command\ShowHelp;
 use IODigital\CodeSnifferBaseliner\Filesystem\NativeFilesystem;
+use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\PhpCodeSnifferBinaryLocatorFactory;
 use IODigital\CodeSnifferBaseliner\PhpCodeSnifferRunner\Runner;
 use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\AddBaselineProcessor;
 use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLineParser;
@@ -29,10 +30,12 @@ class Application
 {
     public static function create(): self
     {
+        $binaryLocator = (new PhpCodeSnifferBinaryLocatorFactory())->createFromEnvironment();
+
         return new self(
             new BaselineCreator(
                 new BasePathFinder(),
-                new Runner(),
+                new Runner($binaryLocator),
                 new BaselineFactory(),
                 new NativeFilesystem(),
                 new AddBaselineProcessor(new InstructionCommentLineParser()),
@@ -40,7 +43,7 @@ class Application
             ),
             new UnnecessaryBaselineDetector(
                 new BasePathFinder(),
-                new Runner(),
+                new Runner($binaryLocator),
                 new BaselineFactory(),
                 new NativeFilesystem(),
                 new UnnecessaryBaselineFinder(new InstructionCommentCollector(new InstructionCommentLineParser())),
