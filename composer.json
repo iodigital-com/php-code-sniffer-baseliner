@@ -35,6 +35,7 @@
     },
     "scripts": {
         "dev:check": [
+            "@composer validate --strict",
             "phpcs",
             "phpstan",
             "phpunit"
@@ -50,7 +51,7 @@
         "post-update-cmd": "@dev:install-git-hooks"
     },
     "scripts-descriptions": {
-        "dev:check": "Runs the same checks as the CI workflow (phpcs, phpstan, phpunit)",
+        "dev:check": "Runs the same checks as the CI workflow (composer validate, phpcs, phpstan, phpunit)",
         "dev:check-dependency-versions": "Runs the checks with the lowest and the highest dependency versions, like CI",
         "dev:install-git-hooks": "Enables the git hooks in .githooks"
     },
