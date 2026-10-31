@@ -1,0 +1,3 @@
+#!/bin/sh
+# Run the same checks as CI before pushing
+exec composer dev:check
