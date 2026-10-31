@@ -117,6 +117,23 @@ multi-line strings). In those cases, `// phpcs:disable` and `// phpcs:enable` in
   ```
 - Support detection of and merging with older types of ignore instructions, such as `@phpcsSuppress`.
 
+## Development
+Run the same checks as the CI workflow (`composer validate --strict`, `phpcs`, `phpstan` and `phpunit`):
+```shell
+composer dev:check
+```
+
+CI runs these checks with both the lowest and the highest dependency versions. To do the same locally (this leaves `vendor/` on the highest versions):
+```shell
+composer dev:check-dependency-versions
+```
+This only covers the dependency versions, not the PHP versions of the CI matrix.
+
+### Git hooks
+`composer install` and `composer update` set `core.hooksPath` to `.githooks`, which activates a `pre-push` hook that runs `composer dev:check`. A failing check blocks the push. To skip it, use `git push --no-verify`.
+
+Because of this setting, git no longer runs hooks from `.git/hooks` or from a global `core.hooksPath` in this repository. Put additional hooks in `.githooks` instead. To (re)enable the hook manually, run `composer dev:install-git-hooks`.
+
 [php-code-sniffer]: (https://github.com/squizlabs/PHP_CodeSniffer)
 [slevomat-coding-standard]: (https://github.com/slevomat/coding-standard)
 [declare-strict-types-sniff]: (https://github.com/slevomat/coding-standard#slevomatcodingstandardtypehintsdeclarestricttypes-)
