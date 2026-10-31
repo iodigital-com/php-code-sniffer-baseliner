@@ -33,6 +33,27 @@
         "slevomat/coding-standard": "^8.22",
         "phpunit/phpunit": "^11.5"
     },
+    "scripts": {
+        "dev:check": [
+            "phpcs",
+            "phpstan",
+            "phpunit"
+        ],
+        "dev:check-dependency-versions": [
+            "@composer update --prefer-lowest --prefer-stable",
+            "@dev:check",
+            "@composer update --prefer-stable",
+            "@dev:check"
+        ],
+        "dev:install-git-hooks": "git config core.hooksPath .githooks || exit 0",
+        "post-install-cmd": "@dev:install-git-hooks",
+        "post-update-cmd": "@dev:install-git-hooks"
+    },
+    "scripts-descriptions": {
+        "dev:check": "Runs the same checks as the CI workflow (phpcs, phpstan, phpunit)",
+        "dev:check-dependency-versions": "Runs the checks with the lowest and the highest dependency versions, like CI",
+        "dev:install-git-hooks": "Enables the git hooks in .githooks"
+    },
     "minimum-stability": "stable",
     "config": {
         "sort-packages": true,
