@@ -35,18 +35,26 @@
     },
     "scripts": {
         "dev:check": [
+            "echo 'Validating Composer configuration...'",
             "@composer validate --strict",
+            "echo 'Running PHP CodeSniffer...'",
             "phpcs",
+            "echo 'Running PHPStan...'",
             "phpstan",
+            "echo 'Running PHPUnit...'",
             "phpunit"
         ],
         "dev:check-dependency-versions": [
+            "echo 'Installing lowest dependency versions...'",
             "@composer update --prefer-lowest --prefer-stable",
+            "echo 'Running checks with lowest dependency versions...'",
             "@dev:check",
+            "echo 'Restoring highest dependency versions...'",
             "@composer update --prefer-stable",
+            "echo 'Running checks with highest dependency versions...'",
             "@dev:check"
         ],
-        "dev:install-git-hooks": "git config core.hooksPath .githooks || exit 0",
+        "dev:install-git-hooks": "echo 'Configuring Git hooks path to .githooks...' && git config core.hooksPath .githooks || exit 0",
         "post-install-cmd": "@dev:install-git-hooks",
         "post-update-cmd": "@dev:install-git-hooks"
     },
