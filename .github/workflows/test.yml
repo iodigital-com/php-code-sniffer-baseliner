@@ -6,6 +6,7 @@ on:
     - "develop"
     - "main"
   pull_request: ~
+  workflow_call: ~
 
 jobs:
   test:
@@ -30,6 +31,7 @@ jobs:
     - uses: "ramsey/composer-install@v3"
       with:
         dependency-versions: "${{ matrix.composer-dependency-versions }}"
+    - run: "composer validate --strict"
     - run: "vendor/bin/phpcs"
     - run: "vendor/bin/phpstan"
     - run: "vendor/bin/phpunit"
