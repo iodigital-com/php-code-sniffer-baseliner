@@ -8,6 +8,7 @@ use IODigital\CodeSnifferBaseliner\SourceCodeProcessor\InstructionCommentLinePar
 use IODigital\CodeSnifferBaseliner\UnnecessaryBaseline\InstructionCommentCollector;
 use IODigital\CodeSnifferBaseliner\UnnecessaryBaseline\UnnecessaryBaseline;
 use IODigital\CodeSnifferBaseliner\UnnecessaryBaseline\UnnecessaryBaselineFinder;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_map;
@@ -20,8 +21,8 @@ class UnnecessaryBaselineFinderTest extends TestCase
     /**
      * @param array<int, array<string>> $violations
      * @param array<ExpectedBaseline> $expected
-     * @dataProvider provide
      */
+    #[DataProvider('provide')]
     public function testFind(string $source, array $violations, bool $includeNonBaseline, array $expected): void
     {
         $finder = new UnnecessaryBaselineFinder(new InstructionCommentCollector(new InstructionCommentLineParser()));
